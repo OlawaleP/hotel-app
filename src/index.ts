@@ -1,11 +1,11 @@
 import express from "express";
 import { ApolloServer } from "apollo-server-express";
-import { schema } from "./graphql";
+import { typeDefs, resolvers } from "./graphql";
 
 const app = express();
 const port = 9000;
 
-const server = new ApolloServer({ schema });
+const server = new ApolloServer({ typeDefs, resolvers });
 
 async function startServer() {
   try {
@@ -18,6 +18,5 @@ async function startServer() {
     console.error('Error starting Apollo Server:', error);
   }
 }
-
 // Call the startServer function to start the server
 startServer();
